@@ -1,0 +1,2 @@
+Simple Azure Function that will run a query against the iMIS API 
+provided an email address will return an iMIS ID and valid member status (or not).
