@@ -1,2 +1,12 @@
 Simple Azure Function that will run a query against the iMIS API 
 provided an email address will return an iMIS ID and valid member status (or not).
+
+Don't forget to add App Configuration entries for the local settings you have!!
+
+You'll want to set at least these:
+```json
+    "iMIS_User" : "", 
+    "iMIS_Password" : "", 
+    "API_URL" : "https://example.com/api/",
+    "Query": "$/FOLDER/query"
+```
