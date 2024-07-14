@@ -10,3 +10,12 @@ You'll want to set at least these:
     "API_URL" : "https://example.com/api/",
     "Query": "$/FOLDER/query"
 ```
+
+For your query, you will probably want to do something like:
+* Sources: ```CsContact```
+* Filters: Email - blank - required, Is company - no - no
+* Display: iMIS id of course, and maybe something like this? ```IIF(vBoCsContact.MemberType = 'VICF' AND (vBoCsContact.RenewMonths = 1 OR vBoCsContact.PaidThrough >= CAST(CONCAT(Year(GetDate()),'-11-30') AS DATE)), 'Y', 'N')``` with an alias of "ValidMember" or such, depending on your needs.
+
+If you use EventsAir, you can insert the HTML snippet in ```html/EventsAit.html``` in a widget, and it will populate the UserDefinedFieldOne with iMIS ID, and UserDefinedFieldTwo with "isMember".  
+You will want to modify that snippet to put the function URL in line 2. You may also want to modify that snippet. At the bottom of the snippet it runs the check on page 2 and 3.
+You will of course then want to modify your registration options to take in to account the values of UserDefinedFieldTwo... probably. Or not.
